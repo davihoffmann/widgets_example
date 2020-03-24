@@ -22,6 +22,19 @@ class HomePage extends StatelessWidget {
       ),
       body: Container(
         color: Colors.white,
+        child: Center(
+          child: Text(
+            'Hello World',
+            style: TextStyle(
+              fontSize: 30,
+              color: Colors.blue,
+              fontWeight: FontWeight.bold,
+              fontStyle: FontStyle.italic,
+              decoration: TextDecoration.underline,
+              decorationColor: Colors.red,
+            ),
+          ),
+        ),
       ),
     );
   }
