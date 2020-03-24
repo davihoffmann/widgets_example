@@ -14,10 +14,11 @@ class HomePage extends StatelessWidget {
   _body() {
     return Container(
       color: Colors.white,
-      child: _img(),
+      child: _button(),
     );
   }
 
+  /*
   _text() {
     return Text(
       'Hello World',
@@ -36,5 +37,23 @@ class HomePage extends StatelessWidget {
     return Image.asset(
       "assets/images/dog1.png",
     );
+  }
+  */
+
+  _button() {
+    return RaisedButton(
+      color: Colors.blue,
+      child: Text(
+        'OK',
+        style: TextStyle(
+          color: Colors.white
+        ),
+      ),
+      onPressed: () => _onClickOk(),
+    );
+  }
+
+  void _onClickOk() {
+    print('ok');
   }
 }
