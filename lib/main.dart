@@ -7,10 +7,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primaryColor: Colors.blue
+      theme: ThemeData(primaryColor: Colors.blue),
+      home: home(),
+    );
+  }
+
+  home() {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Hello Flutter"),
       ),
-      home: Container(
+      body: Container(
         color: Colors.white,
       ),
     );
