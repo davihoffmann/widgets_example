@@ -7,18 +7,28 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Hello Flutter"),
       ),
-      body: _body(),
+      body: _body(context),
     );
   }
 
-  _body() {
+  _body(context) {
+    final size = MediaQuery.of(context).size;
+
     return Container(
-      color: Colors.white,
-      child: _button(),
+      height: size.height,
+      color: Colors.green,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          _button(),
+          _button(),
+          _button()
+        ],
+      ),
     );
   }
 
-  /*
   _text() {
     return Text(
       'Hello World',
@@ -38,7 +48,6 @@ class HomePage extends StatelessWidget {
       "assets/images/dog1.png",
     );
   }
-  */
 
   _button() {
     return RaisedButton(
