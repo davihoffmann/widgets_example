@@ -52,6 +52,8 @@ class HomePage extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
+             BlueButton('Page 1',
+                onPressed: () => _onClickNavigator(context, HelloPage1())),
             BlueButton('ListView',
                 onPressed: () => _onClickNavigator(context, HelloListView())),
             BlueButton('Page 2',
@@ -89,6 +91,7 @@ class HomePage extends StatelessWidget {
   _img(String img) {
     return Image.asset(
       img,
+      fit: BoxFit.cover,
     );
   }
 

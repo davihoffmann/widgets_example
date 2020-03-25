@@ -9,9 +9,39 @@ class HelloPage1 extends StatelessWidget {
       ),
       body: Column(
         children: <Widget>[
-          Text('Pagina 1'),
+          Expanded(
+            flex: 6,
+            child: PageView(
+              children: <Widget>[
+                _img('assets/images/dog1.png'),
+                _img('assets/images/dog2.png'),
+                _img('assets/images/dog3.png'),
+                _img('assets/images/dog4.png'),
+                _img('assets/images/dog5.png'),
+              ],
+            ),
+          ),
+          Expanded(
+            flex: 4,
+            child: PageView(
+              children: <Widget>[
+                _img('assets/images/dog1.png'),
+                _img('assets/images/dog2.png'),
+                _img('assets/images/dog3.png'),
+                _img('assets/images/dog4.png'),
+                _img('assets/images/dog5.png'),
+              ],
+            ),
+          )
         ],
       ),
+    );
+  }
+
+  _img(String img) {
+    return Image.asset(
+      img,
+      fit: BoxFit.cover,
     );
   }
 }
