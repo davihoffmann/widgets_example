@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:widgets_exemple/pages/hello_page_1.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -7,18 +8,19 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Hello Flutter"),
       ),
-      body: _body(),
+      body: _body(context),
     );
   }
 
-  _body() {
-    return SingleChildScrollView(
+  _body(BuildContext context) {
+    return Container(
+      color: Colors.white,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           _text(),
           _pageView(),
-          _coluna(),
+          _coluna(context),
         ],
       ),
     );
@@ -40,23 +42,23 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Column _coluna() {
+  Column _coluna(BuildContext context) {
     return Column(
       children: <Widget>[
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            _button('ListView'),
-            _button('Page 2'),
-            _button('Page 3'),
+            _button('ListView', context),
+            _button('Page 2', context),
+            _button('Page 3', context),
           ],
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            _button('Snack'),
-            _button('Dialog'),
-            _button('Toast'),
+            _button('Snack', context),
+            _button('Dialog', context),
+            _button('Toast', context),
           ],
         )
       ],
@@ -83,18 +85,24 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  _button(String text) {
+  _button(String text, BuildContext context) {
     return RaisedButton(
       color: Colors.blue,
       child: Text(
         text,
         style: TextStyle(color: Colors.white),
       ),
-      onPressed: () => _onClickOk(),
+      onPressed: () => _onClickOk(context),
     );
   }
 
-  void _onClickOk() {
-    print('ok');
+  void _onClickOk(BuildContext context) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (BuildContext context) {
+            return HelloPage1();
+          },
+        ));
   }
 }
