@@ -14,14 +14,29 @@ class HomePage extends StatelessWidget {
         title: Text("Hello Flutter"),
       ),
       body: _body(),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          FloatingActionButton(
+            child: Icon(Icons.add),
+            onPressed: _onClickFab,
+          ),
+          SizedBox(width: 10,),
+          FloatingActionButton(
+            child: Icon(Icons.favorite),
+            onPressed: _onClickFab,
+          )
+        ],
+      ),
     );
   }
 
   _body() {
     return Container(
+      padding: EdgeInsets.only(top: 15),
       color: Colors.white,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           _text(),
           _pageView(),
@@ -157,5 +172,9 @@ class HomePage extends StatelessWidget {
       textColor: Colors.white,
       fontSize: 16.0,
     );
+  }
+
+  void _onClickFab() {
+    print('adicionar');
   }
 }
