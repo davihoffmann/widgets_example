@@ -4,6 +4,7 @@ import 'package:widgets_exemple/pages/hello_page_1.dart';
 import 'package:widgets_exemple/pages/hello_page_2.dart';
 import 'package:widgets_exemple/pages/hello_page_3.dart';
 import 'package:widgets_exemple/widgets/blue_button.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -146,5 +147,15 @@ class HomePage extends StatelessWidget {
         });
   }
 
-  _onClickToast() {}
+  _onClickToast() {
+    Fluttertoast.showToast(
+      msg: "Flutter é muito legal",
+      toastLength: Toast.LENGTH_LONG,
+      gravity: ToastGravity.CENTER,
+      timeInSecForIosWeb: 5,
+      backgroundColor: Colors.red,
+      textColor: Colors.white,
+      fontSize: 16.0,
+    );
+  }
 }
