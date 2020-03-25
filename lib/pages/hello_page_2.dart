@@ -14,7 +14,7 @@ class HelloPage2 extends StatelessWidget {
 
   _body(BuildContext context) {
     return Center(
-      child: BlueButton('Voltar', () => _onClickVoltar(context)),
+      child: BlueButton('Voltar', onPressed: () => _onClickVoltar(context)),
     );
   }
 
