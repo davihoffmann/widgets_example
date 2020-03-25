@@ -7,25 +7,43 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Hello Flutter"),
       ),
-      body: _body(context),
+      body: _body(),
     );
   }
 
-  _body(context) {
-    final size = MediaQuery.of(context).size;
-
+  _body() {
     return Container(
-      height: size.height,
-      color: Colors.green,
-      child: Row(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          _button(),
-          _button(),
-          _button()
+          _text(),
+          _img(),
+          _coluna(),
         ],
       ),
+    );
+  }
+
+  Column _coluna() {
+    return Column(
+      children: <Widget>[
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            _button('ListView'),
+            _button('Page 2'),
+            _button('Page 3'),
+          ],
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            _button('Snack'),
+            _button('Dialog'),
+            _button('Toast'),
+          ],
+        )
+      ],
     );
   }
 
@@ -33,7 +51,7 @@ class HomePage extends StatelessWidget {
     return Text(
       'Hello World',
       style: TextStyle(
-        fontSize: 30,
+        fontSize: 25,
         color: Colors.blue,
         fontWeight: FontWeight.bold,
         fontStyle: FontStyle.italic,
@@ -49,14 +67,12 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  _button() {
+  _button(String text) {
     return RaisedButton(
       color: Colors.blue,
       child: Text(
-        'OK',
-        style: TextStyle(
-          color: Colors.white
-        ),
+        text,
+        style: TextStyle(color: Colors.white),
       ),
       onPressed: () => _onClickOk(),
     );
