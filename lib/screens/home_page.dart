@@ -12,7 +12,7 @@ class HomePage extends StatelessWidget {
   }
 
   _body() {
-    return Container(
+    return SingleChildScrollView(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
@@ -26,6 +26,7 @@ class HomePage extends StatelessWidget {
 
   Container _pageView() {
     return Container(
+      margin: EdgeInsets.only(top: 22, bottom: 20),
       height: 300,
       child: PageView(
         children: <Widget>[
