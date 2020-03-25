@@ -5,7 +5,6 @@ class Dog {
   final String foto;
 
   Dog(this.nome, this.foto);
-
 }
 
 class HelloListView extends StatelessWidget {
@@ -33,7 +32,30 @@ class HelloListView extends StatelessWidget {
       itemExtent: 250,
       itemBuilder: (context, index) {
         Dog dog = dogs[index];
-        return _img(dog.foto);
+        return Stack(
+          fit: StackFit.expand,
+          children: <Widget>[
+            _img(dog.foto),
+            Container(
+              alignment: Alignment.bottomRight,
+              child: Container(
+                margin: EdgeInsets.all(15),
+                padding: EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  color: Colors.black45,
+                  borderRadius: BorderRadius.circular(16)
+                ),
+                child: Text(
+                  dog.nome,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 30
+                  ),
+                ),
+              ),
+            )
+          ],
+        );
       },
     );
   }
