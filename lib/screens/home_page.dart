@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:widgets_exemple/pages/drawer_list.dart';
 import 'package:widgets_exemple/pages/hello_list_view.dart';
 import 'package:widgets_exemple/pages/hello_page_1.dart';
 import 'package:widgets_exemple/pages/hello_page_2.dart';
@@ -9,24 +10,43 @@ import 'package:fluttertoast/fluttertoast.dart';
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Hello Flutter"),
-      ),
-      body: _body(),
-      floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: <Widget>[
-          FloatingActionButton(
-            child: Icon(Icons.add),
-            onPressed: _onClickFab,
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text("Hello Flutter"),
+          bottom: TabBar(tabs: [
+            Tab(text: 'Tab 1'),
+            Tab(text: 'Tab 2'),
+            Tab(text: 'Tab 3'),
+          ]),
+        ),
+        body: TabBarView(children: [
+          _body(),
+          Container(
+            color: Colors.yellow,
           ),
-          SizedBox(width: 10,),
-          FloatingActionButton(
-            child: Icon(Icons.favorite),
-            onPressed: _onClickFab,
+          Container(
+            color: Colors.green,
           )
-        ],
+        ]),
+        floatingActionButton: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: <Widget>[
+            FloatingActionButton(
+              child: Icon(Icons.add),
+              onPressed: _onClickFab,
+            ),
+            SizedBox(
+              width: 10,
+            ),
+            FloatingActionButton(
+              child: Icon(Icons.favorite),
+              onPressed: _onClickFab,
+            )
+          ],
+        ),
+        drawer: DrawerList(),
       ),
     );
   }
