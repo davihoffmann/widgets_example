@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:widgets_exemple/pages/hello_page_1.dart';
 import 'package:widgets_exemple/pages/hello_page_2.dart';
 import 'package:widgets_exemple/pages/hello_page_3.dart';
+import 'package:widgets_exemple/widgets/blue_button.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -50,20 +51,20 @@ class HomePage extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            _button('ListView', context,
-                () => _onClickNavigator(context, HelloPage1())),
-            _button('Page 2', context,
-                () => _onClickNavigator(context, HelloPage2())),
-            _button('Page 3', context,
-                () => _onClickNavigator(context, HelloPage3())),
+            BlueButton(
+                'ListView', () => _onClickNavigator(context, HelloPage1())),
+            BlueButton(
+                'Page 2', () => _onClickNavigator(context, HelloPage2())),
+            BlueButton(
+                'Page 3', () => _onClickNavigator(context, HelloPage3())),
           ],
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            _button('Snack', context, _onClickSnack),
-            _button('Dialog', context, _onClickDialog),
-            _button('Toast', context, _onClickToast),
+            BlueButton('Snack', _onClickSnack),
+            BlueButton('Dialog', _onClickDialog),
+            BlueButton('Toast', _onClickToast),
           ],
         )
       ],
@@ -90,19 +91,9 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  _button(String text, BuildContext context, Function onPressed) {
-    return RaisedButton(
-      color: Colors.blue,
-      child: Text(
-        text,
-        style: TextStyle(color: Colors.white),
-      ),
-      onPressed: onPressed,
-    );
-  }
-
   void _onClickNavigator(BuildContext context, Widget page) async {
-    String s = await Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
+    String s = await Navigator.push(context,
+        MaterialPageRoute(builder: (BuildContext context) {
       return page;
     }));
 
