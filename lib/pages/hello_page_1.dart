@@ -5,7 +5,12 @@ class HelloPage1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Ola'),
+        title: Text('Ola Pagina 1'),
+      ),
+      body: Column(
+        children: <Widget>[
+          Text('Pagina 1'),
+        ],
       ),
     );
   }
