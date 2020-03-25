@@ -17,8 +17,23 @@ class HomePage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           _text(),
-          _img(),
+          _pageView(),
           _coluna(),
+        ],
+      ),
+    );
+  }
+
+  Container _pageView() {
+    return Container(
+      height: 300,
+      child: PageView(
+        children: <Widget>[
+          _img('assets/images/dog1.png'),
+          _img('assets/images/dog2.png'),
+          _img('assets/images/dog3.png'),
+          _img('assets/images/dog4.png'),
+          _img('assets/images/dog5.png'),
         ],
       ),
     );
@@ -61,9 +76,9 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  _img() {
+  _img(String img) {
     return Image.asset(
-      "assets/images/dog1.png",
+      img,
     );
   }
 
