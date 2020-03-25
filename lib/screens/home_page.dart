@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:widgets_exemple/pages/drawer_list.dart';
-import 'package:widgets_exemple/pages/hello_list_view.dart';
 import 'package:widgets_exemple/pages/hello_page_1.dart';
 import 'package:widgets_exemple/pages/hello_page_2.dart';
 import 'package:widgets_exemple/pages/hello_page_3.dart';
+import 'package:widgets_exemple/pages/list_view_v2.dart';
+import 'package:widgets_exemple/utils/nav.dart';
 import 'package:widgets_exemple/widgets/blue_button.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -34,6 +35,7 @@ class HomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
             FloatingActionButton(
+              heroTag: 'btn1',
               child: Icon(Icons.add),
               onPressed: _onClickFab,
             ),
@@ -41,6 +43,7 @@ class HomePage extends StatelessWidget {
               width: 10,
             ),
             FloatingActionButton(
+              heroTag: 'btn2',
               child: Icon(Icons.favorite),
               onPressed: _onClickFab,
             )
@@ -90,7 +93,7 @@ class HomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               BlueButton('ListView',
-                  onPressed: () => _onClickNavigator(context, HelloListView())),
+                  onPressed: () => _onClickNavigator(context, ListViewV2())),
               BlueButton('Page 1',
                   onPressed: () => _onClickNavigator(context, HelloPage1())),
               BlueButton('Page 2',
@@ -134,11 +137,7 @@ class HomePage extends StatelessWidget {
   }
 
   void _onClickNavigator(BuildContext context, Widget page) async {
-    String s = await Navigator.push(context,
-        MaterialPageRoute(builder: (BuildContext context) {
-      return page;
-    }));
-
+    String s = await push(context, page);
     print(s);
   }
 
